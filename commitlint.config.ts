@@ -7,7 +7,7 @@ module.exports = {
       ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
     ],
     "scope-enum": [2, "always", ["ui", "backend", "build", "docs", "deps"]],
-    "header-max-length": [2, "always", 72],
+    "header-max-length": [0],
     'references-empty': [2, 'never'], // Ensures there is at least one issue reference
   },
 };

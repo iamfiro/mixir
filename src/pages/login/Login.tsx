@@ -7,14 +7,11 @@ const PageLogin = () => {
     return (
         <Viewport>
             <Container>
-                <>Sample Image</>
-                <Flex>
-                    <MixirLogo size={60} color="#fff" />
-                    <Title>팀 관리를 Mixir앱 하나로</Title>
-                    <Description>
-                        설명을 적어주세요
-                    </Description>
-                </Flex>
+                <MixirLogo size={60} color="#fff" />
+                <Title>팀 관리를 Mixir앱 하나로</Title>
+                <Description>
+                    설명을 적어주세요
+                </Description>
             </Container>
         </Viewport>
     )

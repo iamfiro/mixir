@@ -1,7 +1,6 @@
 import { Viewport } from "../../components/common"
 import { Container, Description, Title } from "./styles.css"
 import MixirLogo from '../../assets/logo.tsx'
-import { Flex } from "@creative-kit/react"
 
 const PageLogin = () => {
     return (

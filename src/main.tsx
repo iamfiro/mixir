@@ -4,11 +4,14 @@ import { GlobalStyle } from './styles/GlobalStyle.tsx'
 
 import App from './App.tsx'
 import { FontLoader } from './styles/FontLoader.tsx'
+import { HelmetProvider } from 'react-helmet-async'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <GlobalStyle />
-    <FontLoader />
-    <App />
+    <HelmetProvider>
+      <GlobalStyle />
+      <FontLoader />
+      <App />
+    </HelmetProvider>
   </StrictMode>,
 )

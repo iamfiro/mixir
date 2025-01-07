@@ -1,5 +1,7 @@
+import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import { PageLogin } from "../pages";
+
+const PageLogin = lazy(() => import('../pages/login/Login'))
 
 export const Router = () => {
     return (

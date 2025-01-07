@@ -1,4 +1,4 @@
-import { Viewport } from "../../components/common"
+import { Button, Viewport } from "../../components/common"
 import { Container, Description, Title } from "./styles.css"
 import MixirLogo from '../../assets/logo.tsx'
 
@@ -11,6 +11,7 @@ const PageLogin = () => {
                 <Description>
                     설명을 적어주세요
                 </Description>
+                <Button variant="background" size="lg" isLoading>로그인</Button>
             </Container>
         </Viewport>
     )

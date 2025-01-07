@@ -87,6 +87,14 @@ export const StyledButton = styled.button<ButtonProps>`
         cursor: not-allowed;
     }
 
+    .button-children {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: inherit;;
+    }
+
     ${({ isLoading = false }) => isLoading && css`
         cursor: not-allowed;
 

@@ -1,4 +1,4 @@
-import { Viewport } from "./components"
+import { Viewport } from "./components/common"
 
 function App() {
   return (

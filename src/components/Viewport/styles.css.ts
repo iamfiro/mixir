@@ -15,5 +15,5 @@ export const ViewportContent = styled.main`
     width: min(100%, var(--max-width));
     height: 100%;
 
-    background-color: red;
+    background-color: #fff;
 `

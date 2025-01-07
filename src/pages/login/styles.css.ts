@@ -10,6 +10,10 @@ export const Container = styled.div`
     padding: 30px;
 
     background-color: var(--color-primary);
+
+    background-image: url('/images/login_background.png');
+    background-size: cover;
+    background-position: center;
 `
 
 export const Title = styled.h1`

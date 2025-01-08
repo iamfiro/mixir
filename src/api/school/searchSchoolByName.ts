@@ -14,12 +14,16 @@ async function getSchoolListByName(name: string) {
         `https://open.neis.go.kr/hub/schoolInfo?KEY=${NEIS_API_KEY}&Type=json&pSize=${NEIS_API_MAX_LENGTH}&SCHUL_NM=${name}`
     )
 
-    const schoolList: School[] = response.data.schoolInfo[1].row.map((school: NEIS_API_SCHOOL) => ({
-        schoolName: school.SCHUL_NM,
-        affiliated: school.ATPT_OFCDC_SC_NM,
-    }));
+    if(response.data.schoolInfo) {
+        const schoolList: School[] = response.data.schoolInfo[1].row.map((school: NEIS_API_SCHOOL) => ({
+            schoolName: school.SCHUL_NM,
+            affiliated: school.ATPT_OFCDC_SC_NM,
+        }));
 
-    return schoolList
+        return schoolList
+    }
+
+    return []
 }
 
 export default getSchoolListByName;

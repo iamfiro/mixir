@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRouter";
 
 const PageLogin = lazy(() => import('../pages/login/Login'))
 const PageRedirectLogin = lazy(() => import('../pages/login/RedirectLogin'))
+const OnboardSchool = lazy(() => import('../pages/onboardSchool/OnboardSchool'))
 
 export const Router = () => {
     return (
@@ -12,6 +13,7 @@ export const Router = () => {
                 <Route path="/" element={<PageLogin />} />
                 <Route path="/auth/callback/google" element={<PageRedirectLogin />} />
                 <Route element={<PrivateRoute />}>
+                    <Route path="/onboard/school" element={<OnboardSchool />} />
                 </Route>
             </Routes>
         </BrowserRouter>

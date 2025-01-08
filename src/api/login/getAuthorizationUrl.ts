@@ -1,5 +1,5 @@
 import { client } from '../axios'
-import { AuthUrlResponse } from '../../pages/login/types/AuthResponse'
+import { AuthUrlResponse } from '../../types/api/AuthResponse'
 
 async function getAuthorizationUrl() {
     const response = await client.get<AuthUrlResponse>(

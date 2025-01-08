@@ -7,13 +7,19 @@ import { FontLoader } from './styles/FontLoader.tsx'
 import { HelmetProvider } from 'react-helmet-async'
 
 import './styles/variable.css'
+import '@creative-kit/react/dist/index.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <HelmetProvider>
-      <GlobalStyle />
-      <FontLoader />
-      <Router />
-    </HelmetProvider>
-  </StrictMode>,
+    <StrictMode>
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <GlobalStyle />
+                <FontLoader />
+                <Router />
+            </QueryClientProvider>
+        </HelmetProvider>
+    </StrictMode>,
 )

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { ButtonProps } from "./Button.types";
-import { SpinnerWrapper, StyledButton } from "./styles.css";
-import Spinner from "../Spinner";
+import { SpinnerWrapper, StyledButton } from "./Button.style";
+import Spinner from "../Spinner/Spinner";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const { 

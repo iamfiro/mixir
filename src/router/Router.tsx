@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRouter'
 
 const PageLogin = lazy(() => import('../pages/login/Login'))
 const PageRedirectLogin = lazy(() => import('../pages/login/RedirectLogin'))
-const OnboardSchool = lazy(() => import('../pages/onboard/OnboardSchool'))
+const OnboardSchool = lazy(() => import('../pages/OnboardSchool/OnboardSchool'))
 
 export const Router = () => {
     return (

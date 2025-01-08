@@ -1,6 +1,6 @@
-import { Viewport } from "../../components/common"
-import OnboardTitle from "./components/OnboardTitle"
-import { Container } from "./styles.css"
+import { Viewport } from '../../components/common'
+import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
+import { Container } from './OnboardSchool.style'
 
 const OnboardSchool = () => {
     return (

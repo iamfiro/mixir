@@ -1,14 +1,14 @@
-import { Navigate, Outlet } from "react-router";
-import checkAuthenticate from "../utils/api/checkAuthenticate";
+import { Navigate, Outlet } from 'react-router'
+import checkAuthenticate from '../api/checkAuthenticate'
 
 const PrivateRoute = () => {
-    const isAuthenticated = checkAuthenticate();
+    const isAuthenticated = checkAuthenticate()
 
     if (!isAuthenticated) {
         alert('로그인 후 이용이 가능합니다')
     }
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/" />
 }
 
-export default PrivateRoute;
+export default PrivateRoute

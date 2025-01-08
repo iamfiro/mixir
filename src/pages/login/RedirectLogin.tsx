@@ -1,7 +1,7 @@
 import { Flex } from '@creative-kit/react'
-import { Spinner, Viewport } from '../../components/common'
-import useLoginService from './hooks/useLoginService'
+import useLoginService from '../../hooks/api/useLoginService'
 import { useEffect } from 'react'
+import { Spinner, Viewport } from '../../components/common'
 
 const PageRedirectLogin = () => {
     const code = new URLSearchParams(location.search).get('code') || ''
@@ -9,7 +9,7 @@ const PageRedirectLogin = () => {
 
     useEffect(() => {
         loginService.mutate()
-    }, []);
+    }, [])
 
     return (
         <Viewport>

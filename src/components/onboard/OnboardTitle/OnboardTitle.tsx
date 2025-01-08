@@ -1,5 +1,5 @@
-import { Container, Title } from "./styles.css";
 import { CSSProperties } from "styled-components";
+import { Container, Title } from "./OnboardTitle.style";
 
 interface OnboardTitleProps {
     title: string;

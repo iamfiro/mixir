@@ -1,5 +1,5 @@
 import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from "react"
-import { ViewportContainer, ViewportContent } from "./styles.css";
+import { ViewportContainer, ViewportContent } from "./Viewport.style";
 
 interface ViewportProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactElement | ReactNode;

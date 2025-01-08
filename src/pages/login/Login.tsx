@@ -1,14 +1,14 @@
-import { Button, Viewport } from '../../components/common'
 import { Container, Description, Title } from './styles.css'
 import MixirLogo from '../../assets/logo.tsx'
 import GoogleLogo from '../../assets/icon/GoogleLoginIcon.tsx'
-import getAuthorizationUrl from './api/getAuthorizationUrl.ts'
+import getAuthorizationUrl from '../../api/login/getAuthorizationUrl.ts'
+import { Button, Viewport } from '../../components/common/index.ts'
 
 const PageLogin = () => {
     async function handleGoogleLogin() {
-        const authUrl = await getAuthorizationUrl();
+        const authUrl = await getAuthorizationUrl()
 
-        location.href = authUrl;
+        location.href = authUrl
     }
 
     return (

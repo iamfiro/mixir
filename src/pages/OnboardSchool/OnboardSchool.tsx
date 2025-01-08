@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { Input, Viewport } from '../../components/common'
 import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
@@ -6,22 +6,14 @@ import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
 import { Container, SchoolListContainer, SearchValueTitle } from './OnboardSchool.style'
 import { SchoolSearchSelect } from '../../components/School'
 import useDebounce from '../../hooks/useDebounce'
-import getSchoolListByName from '../../api/school/searchSchoolByName'
-import { School } from '../../types/school'
+import useSchoolSearch from '../../hooks/school/useSchoolSearch'
 
 const OnboardSchool = () => {
     const [query, setQuery] = useState('')
     const [hasInputEverFocused, setHasInputEverFocused] = useState(false)
-    const [schoolList, setSchoolList] = useState<School[]>([])
-
     const debouncedSearchQuery = useDebounce(query, 500)
 
-    useEffect(() => {
-        const fetchSchoolList = async () => {
-            setSchoolList(await getSchoolListByName(debouncedSearchQuery))
-        }
-        fetchSchoolList()
-    }, [debouncedSearchQuery])
+    const schoolLust = useSchoolSearch(debouncedSearchQuery)
 
     return (
         <Viewport>
@@ -42,7 +34,7 @@ const OnboardSchool = () => {
                     {query ? `'${query}' 검색 결과` : '추천 학교'}
                 </SearchValueTitle>
                 <SchoolListContainer>
-                    {schoolList.map((school) => (
+                    {schoolLust.map((school) => (
                         <SchoolSearchSelect
                             key={school.schoolName}
                             schoolName={school.schoolName}
@@ -57,7 +49,3 @@ const OnboardSchool = () => {
 }
 
 export default OnboardSchool
-function useSchoolSearch(school: string) {
-    throw new Error('Function not implemented.')
-}
-

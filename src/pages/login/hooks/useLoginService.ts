@@ -10,7 +10,7 @@ const useLoginService = (code: string) => {
         onSuccess: (data) => {
             localStorage.setItem("accessToken", data.data.accessToken);
 
-            navigate("/building");
+            navigate("/onboard/school");
         },
         onError: (error) => {
             alert(error.message);

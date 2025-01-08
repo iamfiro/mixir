@@ -41,5 +41,5 @@
     "typescript-eslint": "^8.15.0",
     "vite": "^6.0.1"
   },
-  "proxy": "https://26f2-220-79-239-238.ngrok-free.app/"
+  "proxy": "https://be95-220-79-239-238.ngrok-free.app/"
 }

@@ -1,0 +1,1 @@
+export const NEIS_API_MAX_LENGTH = 15;

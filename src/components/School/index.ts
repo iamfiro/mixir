@@ -1,0 +1,1 @@
+export {default as SchoolSearchSelect} from './SchoolSearchSelect/SchoolSearchSelect';

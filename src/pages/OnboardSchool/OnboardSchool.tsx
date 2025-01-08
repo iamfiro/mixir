@@ -1,13 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Input, Viewport } from '../../components/common'
 import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
 
-import { Container, SearchValueTitle } from './OnboardSchool.style'
+import { Container, SchoolListContainer, SearchValueTitle } from './OnboardSchool.style'
+import { SchoolSearchSelect } from '../../components/School'
+import useDebounce from '../../hooks/useDebounce'
+import getSchoolListByName from '../../api/school/searchSchoolByName'
+import { School } from '../../types/school'
 
 const OnboardSchool = () => {
-    const [school, setSchool] = useState('')
+    const [query, setQuery] = useState('')
     const [hasInputEverFocused, setHasInputEverFocused] = useState(false)
+    const [schoolList, setSchoolList] = useState<School[]>([])
+
+    const debouncedSearchQuery = useDebounce(query, 500)
+
+    useEffect(() => {
+        const fetchSchoolList = async () => {
+            setSchoolList(await getSchoolListByName(debouncedSearchQuery))
+        }
+        fetchSchoolList()
+    }, [debouncedSearchQuery])
 
     return (
         <Viewport>
@@ -16,8 +30,8 @@ const OnboardSchool = () => {
                 <Input.Container>
                     <Input.Label label="학교명" />
                     <Input
-                        value={school}
-                        onChange={(e) => setSchool(e.target.value)}
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
                         placeholder='학교명을 입력해주세요'
                         onFocus={() => {
                             setHasInputEverFocused(true)
@@ -25,11 +39,25 @@ const OnboardSchool = () => {
                     />
                 </Input.Container>
                 <SearchValueTitle>
-                    {school ? `'${school}' 검색 결과` : '추천 학교'}
+                    {query ? `'${query}' 검색 결과` : '추천 학교'}
                 </SearchValueTitle>
+                <SchoolListContainer>
+                    {schoolList.map((school) => (
+                        <SchoolSearchSelect
+                            key={school.schoolName}
+                            schoolName={school.schoolName}
+                            affiliated={school.affiliated}
+                            onClick={() => console.log('click')}
+                        />
+                    ))}
+                </SchoolListContainer>
             </Container>
         </Viewport>
     )
 }
 
 export default OnboardSchool
+function useSchoolSearch(school: string) {
+    throw new Error('Function not implemented.')
+}
+

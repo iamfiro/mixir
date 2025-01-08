@@ -13,7 +13,7 @@ const Spinner = styled.div<{ color?: string; size?: number }>`
     width: ${({ size }) => (size ? `${size}px` : '16px')};
     height: ${({ size }) => (size ? `${size}px` : '16px')};
 
-    border: 2px solid ${({ color }) => (color ? color : 'currentColor')};
+    border: ${({ size }) => (size ? size / 10 : 2)}px solid ${({ color }) => (color ? color : 'currentColor')};
     border-right-color: transparent;
 
     border-radius: 50%;

@@ -2,8 +2,15 @@ import { Button, Viewport } from '../../components/common'
 import { Container, Description, Title } from './styles.css'
 import MixirLogo from '../../assets/logo.tsx'
 import GoogleLogo from '../../assets/icon/GoogleLoginIcon.tsx'
+import getAuthorizationUrl from './api/getAuthorizationUrl.ts'
 
 const PageLogin = () => {
+    async function handleGoogleLogin() {
+        const authUrl = await getAuthorizationUrl();
+
+        location.href = authUrl;
+    }
+
     return (
         <Viewport>
             <Container>
@@ -16,6 +23,7 @@ const PageLogin = () => {
                     fullWidth
                     style={{ marginTop: 20 }}
                     leadingIcon={<GoogleLogo size={24} />}
+                    onClick={() => handleGoogleLogin()}
                 >
                     눌러서 Google로 시작하기
                 </Button>

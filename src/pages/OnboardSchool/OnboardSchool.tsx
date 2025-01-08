@@ -1,7 +1,9 @@
 import { useState } from 'react'
+
 import { Input, Viewport } from '../../components/common'
 import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
-import { Container } from './OnboardSchool.style'
+
+import { Container, SearchValueTitle } from './OnboardSchool.style'
 
 const OnboardSchool = () => {
     const [school, setSchool] = useState('')
@@ -22,6 +24,9 @@ const OnboardSchool = () => {
                         }}
                     />
                 </Input.Container>
+                <SearchValueTitle>
+                    {school ? `'${school}' 검색 결과` : '추천 학교'}
+                </SearchValueTitle>
             </Container>
         </Viewport>
     )

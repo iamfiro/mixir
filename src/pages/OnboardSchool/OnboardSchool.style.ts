@@ -6,3 +6,10 @@ export const Container = styled.div`
 
     padding: 20px;
 `
+
+export const SearchValueTitle = styled.h1`
+    font-size: 16px;
+    font-weight: 600;
+    
+    margin: 24px 0;
+`

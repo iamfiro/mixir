@@ -113,15 +113,3 @@ export const SpinnerWrapper = styled.div`
     align-items: center;
     justify-content: center;
 `
-
-export const Spinner = styled.div`
-    width: 16px;
-    height: 16px;
-
-    border: 2px solid currentColor;
-    border-right-color: transparent;
-
-    border-radius: 50%;
-
-    animation: ${spin} 0.75s linear infinite;
-`

@@ -1,26 +1,25 @@
 import { Flex } from '@creative-kit/react'
 import { Container, Description, Title } from './SchoolSearchSelect.style'
 import {SchoolAvailableBadge} from '../index'
-import { schoolClientKeyAvailable } from '../../../types/school/schoolAvailable'
+import useSchoolAvailable from '../../../hooks/school/useSchoolAvailable'
+import { School } from '../../../types/school'
 
-interface SchoolSearchSelectProps {
-    schoolName: string
-    affiliated: string // ex: 경기도교육청청
+interface SchoolSearchSelectProps extends School {
+    schoolId: string
     onClick: () => void
-    isClientKeyAvailable: schoolClientKeyAvailable
 }
 
 const SchoolSearchSelect = ({
     schoolName,
     affiliated,
     onClick,
-    isClientKeyAvailable,
 }: SchoolSearchSelectProps) => {
+    const {data} = useSchoolAvailable(schoolName)
     return (
         <Container onClick={onClick}>
             <Flex gap={8} align='center'>
                 <Title>{schoolName}</Title>
-                <SchoolAvailableBadge available={null} />
+                <SchoolAvailableBadge available={data} />
             </Flex>
             <Description>{affiliated}</Description>
         </Container>

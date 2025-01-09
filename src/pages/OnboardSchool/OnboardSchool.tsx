@@ -13,7 +13,7 @@ const OnboardSchool = () => {
     const [hasInputEverFocused, setHasInputEverFocused] = useState(false)
     const debouncedSearchQuery = useDebounce(query, 500)
 
-    const schoolLust = useSchoolSearch(debouncedSearchQuery)
+    const schoolList = useSchoolSearch(debouncedSearchQuery)
 
     return (
         <Viewport>
@@ -34,7 +34,7 @@ const OnboardSchool = () => {
                     {query ? `'${query}' 검색 결과` : '추천 학교'}
                 </SearchValueTitle>
                 <SchoolListContainer>
-                    {schoolLust.map((school) => (
+                    {schoolList.map((school) => (
                         <SchoolSearchSelect
                             key={school.schoolName}
                             schoolName={school.schoolName}

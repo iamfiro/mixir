@@ -15,8 +15,9 @@ export const Router = () => {
                     path="/auth/callback/google"
                     element={<PageRedirectLogin />}
                 />
+                <Route path="/onboard/school" element={<OnboardSchool />} />
                 <Route element={<PrivateRoute />}>
-                    <Route path="/onboard/school" element={<OnboardSchool />} />
+                    
                 </Route>
             </Routes>
         </BrowserRouter>

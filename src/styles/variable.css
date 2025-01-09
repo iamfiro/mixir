@@ -2,13 +2,16 @@
     --color-primary: #007bff;
     --color-primary-dark: #006adb;
     --color-primary-darker: #0056b3;
+    --color-primary-background: #e9f1f8;
 
     --color-secondary: #6c757d;
     --color-secondary-light: #909aa1;
+    --color-secondary-background: #e6e9ec;
 
     --color-danger: #f63636;
     --color-danger-dark: #e62e2e;
     --color-danger-darker: #d62626;
+    --color-danger-background: #f6ebec;
 
     --color-background: #f0f0f0;
     --color-background-dark: #e0e0e0;

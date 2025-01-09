@@ -1,15 +1,21 @@
 import { Container, Description, Title } from './styles.css'
 import MixirLogo from '../../assets/logo.tsx'
-import GoogleLogo from '../../assets/icon/GoogleLoginIcon.tsx'
-import getAuthorizationUrl from '../../api/login/getAuthorizationUrl.ts'
+// import getAuthorizationUrl from '../../api/login/getAuthorizationUrl.ts'
 import { Button, Viewport } from '../../components/common/index.ts'
+import { useNavigate } from 'react-router'
 
 const PageLogin = () => {
-    async function handleGoogleLogin() {
-        const authUrl = await getAuthorizationUrl()
+    const navigate = useNavigate()
 
-        location.href = authUrl
+    function handleClick() {
+        navigate('/onboard/school')
     }
+
+    // async function handleGoogleLogin() {
+    //     const authUrl = await getAuthorizationUrl()
+
+    //     location.href = authUrl
+    // }
 
     return (
         <Viewport>
@@ -22,10 +28,9 @@ const PageLogin = () => {
                     size="lg"
                     fullWidth
                     style={{ marginTop: 20 }}
-                    leadingIcon={<GoogleLogo size={24} />}
-                    onClick={() => handleGoogleLogin()}
+                    onClick={() => handleClick()}
                 >
-                    눌러서 Google로 시작하기
+                    눌러서 시작하기
                 </Button>
             </Container>
         </Viewport>

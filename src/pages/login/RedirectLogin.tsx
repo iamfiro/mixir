@@ -9,7 +9,7 @@ const PageRedirectLogin = () => {
 
     useEffect(() => {
         loginService.mutate()
-    }, [])
+    })
 
     return (
         <Viewport>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie'
 
 const baseURL = import.meta.env.VITE_API_URL as string;
 
@@ -9,7 +10,7 @@ export const client = axios.create({
     },
 });
 
-const token = localStorage.getItem("accessToken");
+const token = Cookies.get("accessToken");
 
 export const authClient = axios.create({
     baseURL,

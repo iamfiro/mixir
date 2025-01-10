@@ -94,7 +94,7 @@ export const DialogTitleStyle = styled.h1`
 
 export const DialogDescriptionStyle = styled.p`
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
 
     margin: 0 0 24px 0;
 

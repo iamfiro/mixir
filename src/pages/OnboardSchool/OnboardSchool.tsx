@@ -7,8 +7,8 @@ import { Container, SchoolListContainer, SearchValueTitle } from './OnboardSchoo
 import { SchoolSearchSelect } from '../../components/School'
 import useDebounce from '../../hooks/useDebounce'
 import useSchoolSearch from '../../hooks/school/useSchoolSearch'
-import Dialog from '../../components/common/Dialog/Dialog'
 import useModal from '../../hooks/useDialog'
+import { School } from '../../types/school'
 
 const OnboardSchool = () => {
     const [query, setQuery] = useState('')
@@ -16,12 +16,6 @@ const OnboardSchool = () => {
     const debouncedSearchQuery = useDebounce(query, 500)
 
     const schoolList = useSchoolSearch(debouncedSearchQuery)
-
-    const {
-        isOpen: isSelectSchoolModalOpen,
-        open: openSelectSchoolModal,
-        close: closeSelectSchoolModal,
-    } = useModal()
 
     return (
         <Viewport>
@@ -38,30 +32,19 @@ const OnboardSchool = () => {
                         }}
                     />
                 </Input.Container>
-                <SearchValueTitle onClick={openSelectSchoolModal}>
+                <SearchValueTitle>
                     {query ? `'${query}' 검색 결과` : '추천 학교'}
                 </SearchValueTitle>
-                {/* <SchoolListContainer>
+                <SchoolListContainer>
                     {schoolList.map((school) => (
                         <SchoolSearchSelect
                             key={school.schoolName}
                             schoolName={school.schoolName}
                             affiliated={school.affiliated}
-                            schoolId='1D'
-                            onClick={() => console.log('click')}
+                            schoolId={school.schoolId}
                         />
                     ))}
-                </SchoolListContainer> */}
-                <Dialog isOpen={isSelectSchoolModalOpen} onClose={closeSelectSchoolModal}>
-                    <Dialog.Backdrop />
-                    <Dialog.Content>
-                        <Dialog.Title>선린인터넷고등학교(이)가 맞나요?</Dialog.Title>
-                        <Dialog.Description>
-                            선린인터넷고등학교는 서울특별시 강남구에 위치한 고등학교입니다.
-                        </Dialog.Description>
-                        <Button fullWidth onClick={closeSelectSchoolModal}>신청하기</Button>
-                    </Dialog.Content>
-                </Dialog>
+                </SchoolListContainer>
             </Container>
         </Viewport>
     )

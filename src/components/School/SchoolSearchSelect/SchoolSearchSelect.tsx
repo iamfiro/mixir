@@ -1,28 +1,61 @@
 import { Flex } from '@creative-kit/react'
 import { Container, Description, Title } from './SchoolSearchSelect.style'
-import {SchoolAvailableBadge} from '../index'
+import { SchoolAvailableBadge } from '../index'
 import useSchoolAvailable from '../../../hooks/school/useSchoolAvailable'
 import { School } from '../../../types/school'
+import Dialog from '../../common/Dialog/Dialog'
+import { Button } from '../../common'
+import useDialog from '../../../hooks/useDialog'
+import GoogleLogo from '../../../assets/icon/GoogleLoginIcon'
 
 interface SchoolSearchSelectProps extends School {
     schoolId: string
-    onClick: () => void
 }
 
 const SchoolSearchSelect = ({
     schoolName,
     affiliated,
-    onClick,
+    schoolId,
 }: SchoolSearchSelectProps) => {
-    const {data} = useSchoolAvailable(schoolName)
+    const { data } = useSchoolAvailable(schoolName)
+
+    const {
+        isOpen: isSelectSchoolModalOpen,
+        open: openSelectSchoolModal,
+        close: closeSelectSchoolModal,
+    } = useDialog()
+
     return (
-        <Container onClick={onClick}>
-            <Flex gap={8} align='center'>
-                <Title>{schoolName}</Title>
-                <SchoolAvailableBadge available={data} />
-            </Flex>
-            <Description>{affiliated}</Description>
-        </Container>
+        <>
+            <Container onClick={() => openSelectSchoolModal()}>
+                <Flex gap={8} align="center">
+                    <Title>{schoolName}</Title>
+                    <SchoolAvailableBadge available={data} />
+                </Flex>
+                <Description>{affiliated}</Description>
+            </Container>
+            <Dialog
+                isOpen={isSelectSchoolModalOpen}
+                onClose={closeSelectSchoolModal}
+            >
+                <Dialog.Backdrop />
+                <Dialog.Content>
+                    <Dialog.Title>
+                        선린인터넷고등학교(이)가 맞나요?
+                    </Dialog.Title>
+                    <Dialog.Description>
+                        한번 선택하시면 로그인 전까지 학교를 변경할 수 없습니다.
+                    </Dialog.Description>
+                    <Button
+                        fullWidth
+                        onClick={closeSelectSchoolModal}
+                        leadingIcon={<GoogleLogo color='white' />}
+                    >
+                        학교 계정으로 로그인 하기
+                    </Button>
+                </Dialog.Content>
+            </Dialog>
+        </>
     )
 }
 

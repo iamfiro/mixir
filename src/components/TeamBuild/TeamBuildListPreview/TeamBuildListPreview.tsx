@@ -26,7 +26,7 @@ const TeamBuildListPreview = ({
                 <TeamBuildSecondaryText>{className}</TeamBuildSecondaryText>
             </Flex>
             <Flex align="center" gap={8}>
-                <TeamBuildSecondaryText>({memberCount})</TeamBuildSecondaryText>
+                <TeamBuildSecondaryText>({memberCount}명)</TeamBuildSecondaryText>
                 <IoIosArrowForward size={20} color="var(--color-secondary)" />
             </Flex>
         </Container>

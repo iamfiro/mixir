@@ -19,11 +19,12 @@ export const Container = styled.div`
 `
 
 export const TeamBuildName = styled.h1`
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
 `
 
 export const TeamBuildSecondaryText = styled.span`
+    font-size: 20px;
     font-weight: 500;
     color: var(--color-secondary);
 `

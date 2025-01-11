@@ -15,6 +15,8 @@ export const BottomBarContainer = styled.div`
 
     position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
     padding: 0 16px;
 `

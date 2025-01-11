@@ -7,6 +7,7 @@ import Dialog from '../../common/Dialog/Dialog'
 import { Button } from '../../common'
 import useDialog from '../../../hooks/useDialog'
 import GoogleLogo from '../../../assets/icon/GoogleLoginIcon'
+import getAuthorizationUrl from '../../../api/login/getAuthorizationUrl'
 
 interface SchoolSearchSelectProps extends School {
     schoolId: string
@@ -25,6 +26,17 @@ const SchoolSearchSelect = ({
         close: closeSelectSchoolModal,
     } = useDialog()
 
+    async function handleGoogleLogin() {
+        const authUrl = await getAuthorizationUrl()
+
+        location.href = authUrl
+    }
+
+    function handleConfirm() {
+        handleGoogleLogin()
+        closeSelectSchoolModal()
+    }
+
     return (
         <>
             <Container onClick={() => openSelectSchoolModal()}>
@@ -41,14 +53,14 @@ const SchoolSearchSelect = ({
                 <Dialog.Backdrop />
                 <Dialog.Content>
                     <Dialog.Title>
-                        선린인터넷고등학교(이)가 맞나요?
+                        {schoolName}(이)가 맞나요?
                     </Dialog.Title>
                     <Dialog.Description>
                         한번 선택하시면 로그인 전까지 학교를 변경할 수 없습니다.
                     </Dialog.Description>
                     <Button
                         fullWidth
-                        onClick={closeSelectSchoolModal}
+                        onClick={handleConfirm}
                         leadingIcon={<GoogleLogo color='white' />}
                     >
                         학교 계정으로 로그인 하기

@@ -11,12 +11,6 @@ const PageLogin = () => {
         navigate('/onboard/school')
     }
 
-    // async function handleGoogleLogin() {
-    //     const authUrl = await getAuthorizationUrl()
-
-    //     location.href = authUrl
-    // }
-
     return (
         <Viewport>
             <Container>

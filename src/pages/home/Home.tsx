@@ -1,4 +1,3 @@
-import { MdPlusOne } from 'react-icons/md'
 import { Title, Viewport } from '../../components/common'
 import FloatingButton from '../../components/common/FloatingButton/FloatingButton'
 import { TeamBuildListPreview } from '../../components/TeamBuild'

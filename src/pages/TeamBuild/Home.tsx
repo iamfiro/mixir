@@ -1,8 +1,7 @@
-import { Title, Viewport } from '../../components/common'
+import { Container, Title, Viewport } from '../../components/common'
 import FloatingButton from '../../components/common/FloatingButton/FloatingButton'
 import { TeamBuildListPreview } from '../../components/TeamBuild'
 import TemplateBottomBar from '../../template/BottomBar/BottomBar'
-import { Container } from './style.css'
 import { IoAdd } from "react-icons/io5";
 
 const PageHome = () => {

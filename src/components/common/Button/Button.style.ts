@@ -27,7 +27,7 @@ export const sizes = {
         border-radius: 10px;
     `,
     lg: css`
-        height: 56px;
+        min-height: 56px;
         padding: 0 24px;
         font-size: 18px;
         gap: 10px;

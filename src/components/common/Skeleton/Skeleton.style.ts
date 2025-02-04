@@ -15,8 +15,10 @@ export const SkeletonStyle = {
         background-color: var(--color-gray-100);
         width: ${({ width }) =>
             typeof width === 'number' ? `${width}px` : width || '100%'};
+        max-width: 100%;
         height: ${({ height }) =>
             typeof height === 'number' ? `${height}px` : height || '16px'};
+        min-height: 8px;
         border-radius: ${({ borderRadius }) =>
             typeof borderRadius === 'number'
                 ? `${borderRadius}px`
@@ -27,12 +29,12 @@ export const SkeletonStyle = {
             css`
                 background: linear-gradient(
                     90deg,
-                    var(--color-gray-100) 25%,
-                    var(--color-gray-200) 37%,
-                    var(--color-gray-100) 63%
+                    #f6f7f8 25%,
+                    #edeef1 37%,
+                    #f6f7f8 63%
                 );
                 background-size: 200% 100%;
-                animation: ${shimmer} 1.5s infinite linear;
+                animation: ${shimmer} 1.2s infinite ease-in-out;
             `}
     `,
 }

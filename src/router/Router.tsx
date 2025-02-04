@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import PrivateRoute from './PrivateRouter'
+import StudentManage from '../pages/StudentManage/StudentManage'
 
 const PageLogin = lazy(() => import('../pages/login/Login'))
 const PageRedirectLogin = lazy(() => import('../pages/login/RedirectLogin'))
@@ -23,6 +24,8 @@ export const Router = () => {
                     <Route path="/" element={<PageHome />} />
                     <Route path="/team-build/create" element={<PageTeamBuildCreate />} />
                     <Route path="/team-build/edit/:teamId" element={<PageTeamBuildEdit />} />
+                    <Route path="/student-manage" element={<StudentManage />} />
+                    <Route path="*" element={<h1>Not Found</h1>} />
                 </Route>
             </Routes>
         </BrowserRouter>

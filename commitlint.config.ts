@@ -8,6 +8,5 @@ module.exports = {
     ],
     "scope-enum": [2, "always", ["ui", "backend", "build", "docs", "deps"]],
     "header-max-length": [0],
-    'references-empty': [2, 'never'], // Ensures there is at least one issue reference
   },
 };

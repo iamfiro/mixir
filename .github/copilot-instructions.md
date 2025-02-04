@@ -29,3 +29,5 @@ Button/
 rq를 사용할땐 custom hook으로 data fetch를 로직을 분리해줘
 custom hook에선 useQuery같은 react-query hook을 사용하고
 실제 axios나 fetch로 데이터를 가져오는 로직을 src/api로 분리해줘
+
+Color를 사용할땐 variables.css를 참고해

@@ -18,7 +18,8 @@ const SchoolSearchSelect = ({
     affiliated,
     schoolId,
 }: SchoolSearchSelectProps) => {
-    const { data } = useSchoolAvailable(schoolName)
+    //TODO: 학교 가입 가능 여부 확인
+    // const { data } = useSchoolAvailable(schoolName)
 
     const {
         isOpen: isSelectSchoolModalOpen,
@@ -42,7 +43,7 @@ const SchoolSearchSelect = ({
             <Container onClick={() => openSelectSchoolModal()}>
                 <Flex gap={8} align="center">
                     <Title>{schoolName}</Title>
-                    <SchoolAvailableBadge available={data} />
+                    <SchoolAvailableBadge available={true} />
                 </Flex>
                 <Description>{affiliated}</Description>
             </Container>

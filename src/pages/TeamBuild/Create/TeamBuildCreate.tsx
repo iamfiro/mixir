@@ -7,9 +7,20 @@ import {
     Viewport,
 } from '../../../components/common'
 import { useState } from 'react'
+import Segment from '../../../components/common/Segment/Segment.tsx'
+import { SegmentData } from '../../../components/common/Segment/Segment.type.ts'
 
 const PageTeamBuildCreate = () => {
     const [teamName, setTeamName] = useState('')
+
+    const [selectedSegment, setSelectedSegment] = useState<string>('segment1');
+
+    const segmentData: SegmentData[] = [
+        { name: '3팀', value: '3team' },
+        { name: '4팀', value: '4team' },
+        { name: '기타', value: 'etc' },
+    ];
+
     return (
         <Viewport>
             <Container>
@@ -28,6 +39,11 @@ const PageTeamBuildCreate = () => {
                     />
                 </Input.Container>
                 <div style={{ height: '100%' }} />
+                <Segment
+                    data={segmentData}
+                    setSegment={setSelectedSegment}
+                    selectedSegment={selectedSegment}
+                />
                 <Button variant={'primary'} fullWidth size={'lg'}>
                     저장하기
                 </Button>

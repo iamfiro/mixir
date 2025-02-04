@@ -1,14 +1,12 @@
 import { useState } from 'react'
 
-import { Button, Input, Viewport } from '../../components/common'
+import { Input, Viewport } from '../../components/common'
 import OnboardTitle from '../../components/onboard/OnboardTitle/OnboardTitle'
 
 import { Container, SchoolListContainer, SearchValueTitle } from './OnboardSchool.style'
 import { SchoolSearchSelect } from '../../components/School'
 import useDebounce from '../../hooks/useDebounce'
 import useSchoolSearch from '../../hooks/school/useSchoolSearch'
-import useModal from '../../hooks/useDialog'
-import { School } from '../../types/school'
 
 const OnboardSchool = () => {
     const [query, setQuery] = useState('')

@@ -71,7 +71,7 @@ export const DialogContentContainer = styled.div`
 
     border-radius: 28px;
 
-    padding: 20px;
+    padding: 25px 20px;
 
     max-width: var(--max-width);
 
@@ -87,14 +87,14 @@ export const DialogContentContainer = styled.div`
 
 export const DialogTitleStyle = styled.h1`
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
 
     margin: 0 0 20px 0;
 `
 
 export const DialogDescriptionStyle = styled.p`
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
 
     margin: 0 0 24px 0;
 

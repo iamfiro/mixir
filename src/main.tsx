@@ -7,7 +7,7 @@ import { FontLoader } from './styles/FontLoader.tsx'
 import { HelmetProvider } from 'react-helmet-async'
 
 import './styles/variable.css'
-import '@creative-kit/react/dist/index.css'
+import '@creative-kit/react/dist/styles.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()

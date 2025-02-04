@@ -17,7 +17,7 @@ const PageTeamBuildCreate = () => {
                 <BackButton />
                 <Title>
                     정보를 기입하여
-                    <br/>팀 빌딩을 수정해주세요
+                    <br />팀 빌딩을 수정해주세요
                 </Title>
                 <div style={{ height: 30 }} />
                 <Input.Container>
@@ -29,7 +29,9 @@ const PageTeamBuildCreate = () => {
                     />
                 </Input.Container>
                 <div style={{ height: '100%' }} />
-                <Button variant={'primary'} fullWidth size={'lg'}>팀 빌딩 추가하기</Button>
+                <Button variant={'primary'} fullWidth size={'lg'}>
+                    팀 빌딩 추가하기
+                </Button>
             </Container>
         </Viewport>
     )

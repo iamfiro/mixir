@@ -20,7 +20,7 @@ const TemplateBottomBar = () => {
                 name="학생 관리"
                 pageName="calendar"
                 icon={<IoMdAddCircle />}
-                selected={location.pathname === '/calendar'}
+                selected={location.pathname.includes('/student-manage')}
             />
             <BottomBar.Item
                 name="대진표"

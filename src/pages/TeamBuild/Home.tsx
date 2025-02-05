@@ -19,6 +19,10 @@ const PageHome = () => {
         navigate(`/team-build/${id}`);
     };
 
+    const handleCreateTeamBuilding = () => {
+        navigate('/team-build/create');
+    }
+
     console.log(data)
     return (
         <Viewport>
@@ -41,7 +45,7 @@ const PageHome = () => {
                     variant="primary"
                     position="bottom-right"
                     offset={32}
-                    onClick={() => console.log('clicked')}
+                    onClick={() => handleCreateTeamBuilding()}
                 >
                     <IoAdd />
                 </FloatingButton>

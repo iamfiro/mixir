@@ -8,19 +8,9 @@ import {
     Viewport,
 } from '../../../components/common'
 import { useState } from 'react'
-import Segment from '../../../components/common/Segment/Segment.tsx'
-import { SegmentData } from '../../../components/common/Segment/Segment.type.ts'
 
 const PageTeamBuildCreate = () => {
     const [teamName, setTeamName] = useState('')
-    const [selectedSegment, setSelectedSegment] = useState<string>('segment1')
-    const [customSegment, setCustomSegment] = useState<string>('')
-
-    const segmentData: SegmentData[] = [
-        { name: '3팀', value: '3team' },
-        { name: '4팀', value: '4team' },
-        { name: '기타', value: 'etc' },
-    ]
 
     return (
         <Viewport>
@@ -40,26 +30,9 @@ const PageTeamBuildCreate = () => {
                             placeholder="그룹 이름을 입력해주세요"
                         />
                     </Input.Container>
-                    <Segment
-                        data={segmentData}
-                        setSegment={setSelectedSegment}
-                        selectedSegment={selectedSegment}
-                    />
-                    {selectedSegment === 'etc' && (
-                        <Input.Container>
-                            <Input.Label label={'팀 인원 직접 입력'} />
-                            <Input
-                                value={customSegment}
-                                onChange={(e) =>
-                                    setCustomSegment(e.target.value)
-                                }
-                                placeholder="직접 입력해주세요"
-                            />
-                        </Input.Container>
-                    )}
                 </Flex>
                 <div style={{ height: '100%' }} />
-                <Button variant={'primary'} fullWidth size={'lg'}>
+                <Button variant={'primary'} fullWidth size={'lg'} disabled>
                     저장하기
                 </Button>
             </Container>

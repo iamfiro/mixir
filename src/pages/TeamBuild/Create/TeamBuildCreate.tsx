@@ -1,3 +1,5 @@
+import { useQueryClient } from '@tanstack/react-query'
+import { authClient } from '../../../api/axios'
 import {
     BackButton,
     Button,
@@ -8,9 +10,29 @@ import {
     Viewport,
 } from '../../../components/common'
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const PageTeamBuildCreate = () => {
+    const navigate = useNavigate()
+    const queryClient = useQueryClient()
     const [teamName, setTeamName] = useState('')
+    const [loading, setIsLoading] = useState(false)
+
+    const handleSubmit = () => {
+        setIsLoading(true)
+        authClient
+            .post('/student/create', {
+                name: teamName,
+            }).then(() => {
+                queryClient.invalidateQueries({
+                    queryKey: ['teamBuildingList'],
+                })
+
+                navigate('/')
+            }).finally(() => {
+                setIsLoading(false)
+            })
+    }
 
     return (
         <Viewport>
@@ -32,7 +54,14 @@ const PageTeamBuildCreate = () => {
                     </Input.Container>
                 </Flex>
                 <div style={{ height: '100%' }} />
-                <Button variant={'primary'} fullWidth size={'lg'} disabled>
+                <Button
+                    variant={'primary'}
+                    fullWidth
+                    size={'lg'}
+                    disabled={teamName.length === 0}
+                    isLoading={loading}
+                    onClick={handleSubmit}
+                >
                     저장하기
                 </Button>
             </Container>

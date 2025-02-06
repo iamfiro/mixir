@@ -16,7 +16,7 @@ const PageHome = () => {
     }, [isFetching])
 
     const handleTeamBuildingClick = (id: string) => {
-        navigate(`/team-build/${id}`);
+        navigate(`/student-manage?id=${id}`);
     };
 
     const handleCreateTeamBuilding = () => {

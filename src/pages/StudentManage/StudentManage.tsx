@@ -16,10 +16,9 @@ import { NotingToShow } from './StudentManage.style'
 import TemplateBottomBar from '../../template/BottomBar/BottomBar'
 
 const StudentManage = () => {
-    const teamName = '좌호빈'
-
     const [searchParams] = useSearchParams()
     const groupId = searchParams.get('id') || ''
+    const teamName = searchParams.get('name') || ''
 
     const { data, isFetching } = useStudentManageList(groupId)
 

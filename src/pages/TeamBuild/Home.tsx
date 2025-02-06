@@ -15,8 +15,8 @@ const PageHome = () => {
         console.log(isFetching)
     }, [isFetching])
 
-    const handleTeamBuildingClick = (id: string) => {
-        navigate(`/student-manage?id=${id}`);
+    const handleTeamBuildingClick = (id: string, name: string) => {
+        navigate(`/student-manage?id=${id}&name=${name}`);
     };
 
     const handleCreateTeamBuilding = () => {
@@ -36,7 +36,7 @@ const PageHome = () => {
                     <TeamBuildListPreview
                         key={team.groupId}
                         teamName={team.name}
-                        onClick={() => handleTeamBuildingClick(team.groupId)}
+                        onClick={() => handleTeamBuildingClick(team.groupId, team.name)}
                     />
                 ))}
                 {isFetching && <TeamBuildListSkeleton />}
